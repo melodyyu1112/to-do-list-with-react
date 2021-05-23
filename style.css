@@ -1,0 +1,11 @@
+.form-inline{
+    width:100%;
+}
+
+.main-bar-left {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+  }

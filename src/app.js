@@ -1,6 +1,5 @@
 const checkStatus = (response) => {
     if (response.ok) {
-      // .ok returns true if response status is 200-299
       return response;
     }
     throw new Error('Request was either a 404 or 500');
@@ -16,7 +15,7 @@ const checkStatus = (response) => {
         <div className="row mb-1 d-flex">
           <div className = "col d-flex justify-content-end mr-4">
             <input
-            className="d-inline-block mt-2 "
+            className="d-inline-block mt-2"
             type="checkbox"
             onChange={() => onComplete(id, completed)}
             checked={completed}
@@ -58,7 +57,7 @@ const checkStatus = (response) => {
     }
   
     fetchTasks() {
-      fetch("https://altcademy-to-do-list-api.herokuapp.com/tasks?api_key=48")
+      fetch("https://altcademy-to-do-list-api.herokuapp.com/tasks?api_key=107")
         .then(checkStatus)
         .then(json)
         .then((response) => {
@@ -82,7 +81,7 @@ const checkStatus = (response) => {
         return;
       }
   
-      fetch("https://altcademy-to-do-list-api.herokuapp.com/tasks?api_key=48", {
+      fetch("https://altcademy-to-do-list-api.herokuapp.com/tasks?api_key=107", {
         method: "POST",
         mode: "cors",
         headers: { "Content-Type": "application/json" },
@@ -107,7 +106,7 @@ const checkStatus = (response) => {
       if (!id) {
         return;
       }
-      fetch(`https://altcademy-to-do-list-api.herokuapp.com/tasks/${id}?api_key=48`, {
+      fetch(`https://altcademy-to-do-list-api.herokuapp.com/tasks/${id}?api_key=107`, {
         method: "DELETE",
         mode: "cors",
       }).then(checkStatus)
@@ -127,7 +126,7 @@ const checkStatus = (response) => {
       }
       const newState = completed ? 'active' : 'complete';
   
-      fetch(`https://altcademy-to-do-list-api.herokuapp.com/tasks/${id}/mark_${newState}?api_key=48`, {
+      fetch(`https://altcademy-to-do-list-api.herokuapp.com/tasks/${id}/mark_${newState}?api_key=107`, {
         method: "PUT",
         mode: "cors",
       }).then(checkStatus)
@@ -155,18 +154,18 @@ const checkStatus = (response) => {
         <div className="container">
           <div className="row">
             <div className="col-12">
-              <h2 className="mb-3 text-center mt-4 mb-2">To Do List</h2>
+              <h2 className="text-center mt-4 mb-2">To Do List</h2>
               <div className = "row d-flex justify-content-center">
-                <form onSubmit={this.handleSubmit} className="form-row mb-4 col-8" >
+                <form onSubmit={this.handleSubmit} className="form-row mb-4 col-8 justify-content-center parentInput" >
                   <input
                     type="text"
-                    className="form-control col-10 mb-2"
+                    className="form-control col-7 mb-2 input"
                     placeholder="new task"
                     value={new_task}
                     onChange={this.handleChange}
                   />
                   <span className = "text-center col-2">
-                      <button type="submit" className="btn btn-primary mb-2 ">Submit</button>
+                      <button type="submit" className="btn btn-primary ml-5 mb-2 ">Submit</button>
                   </span>
                 </form>
               </div>

@@ -8,7 +8,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var checkStatus = function checkStatus(response) {
   if (response.ok) {
-    // .ok returns true if response status is 200-299
     return response;
   }
   throw new Error('Request was either a 404 or 500');
@@ -45,7 +44,7 @@ var Task = function (_React$Component) {
           "div",
           { className: "col d-flex justify-content-end mr-4" },
           React.createElement("input", {
-            className: "d-inline-block mt-2 ",
+            className: "d-inline-block mt-2",
             type: "checkbox",
             onChange: function onChange() {
               return onComplete(id, completed);
@@ -115,7 +114,7 @@ var ToDoList = function (_React$Component2) {
     value: function fetchTasks() {
       var _this3 = this;
 
-      fetch("https://altcademy-to-do-list-api.herokuapp.com/tasks?api_key=48").then(checkStatus).then(json).then(function (response) {
+      fetch("https://altcademy-to-do-list-api.herokuapp.com/tasks?api_key=107").then(checkStatus).then(json).then(function (response) {
         console.log(response);
         _this3.setState({ tasks: response.tasks });
       }).catch(function (error) {
@@ -140,7 +139,7 @@ var ToDoList = function (_React$Component2) {
         return;
       }
 
-      fetch("https://altcademy-to-do-list-api.herokuapp.com/tasks?api_key=48", {
+      fetch("https://altcademy-to-do-list-api.herokuapp.com/tasks?api_key=107", {
         method: "POST",
         mode: "cors",
         headers: { "Content-Type": "application/json" },
@@ -165,7 +164,7 @@ var ToDoList = function (_React$Component2) {
       if (!id) {
         return;
       }
-      fetch("https://altcademy-to-do-list-api.herokuapp.com/tasks/" + id + "?api_key=48", {
+      fetch("https://altcademy-to-do-list-api.herokuapp.com/tasks/" + id + "?api_key=107", {
         method: "DELETE",
         mode: "cors"
       }).then(checkStatus).then(json).then(function (data) {
@@ -185,7 +184,7 @@ var ToDoList = function (_React$Component2) {
       }
       var newState = completed ? 'active' : 'complete';
 
-      fetch("https://altcademy-to-do-list-api.herokuapp.com/tasks/" + id + "/mark_" + newState + "?api_key=48", {
+      fetch("https://altcademy-to-do-list-api.herokuapp.com/tasks/" + id + "/mark_" + newState + "?api_key=107", {
         method: "PUT",
         mode: "cors"
       }).then(checkStatus).then(json).then(function (data) {
@@ -225,7 +224,7 @@ var ToDoList = function (_React$Component2) {
             { className: "col-12" },
             React.createElement(
               "h2",
-              { className: "mb-3 text-center mt-4 mb-2" },
+              { className: "text-center mt-4 mb-2" },
               "To Do List"
             ),
             React.createElement(
@@ -233,10 +232,10 @@ var ToDoList = function (_React$Component2) {
               { className: "row d-flex justify-content-center" },
               React.createElement(
                 "form",
-                { onSubmit: this.handleSubmit, className: "form-row mb-4 col-8" },
+                { onSubmit: this.handleSubmit, className: "form-row mb-4 col-8 justify-content-center parentInput" },
                 React.createElement("input", {
                   type: "text",
-                  className: "form-control col-10 mb-2",
+                  className: "form-control col-7 mb-2 input",
                   placeholder: "new task",
                   value: new_task,
                   onChange: this.handleChange
@@ -246,7 +245,7 @@ var ToDoList = function (_React$Component2) {
                   { className: "text-center col-2" },
                   React.createElement(
                     "button",
-                    { type: "submit", className: "btn btn-primary mb-2 " },
+                    { type: "submit", className: "btn btn-primary ml-5 mb-2 " },
                     "Submit"
                   )
                 )

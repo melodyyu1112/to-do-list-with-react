@@ -1,11 +1,8 @@
-.form-inline{
-    width:100%;
+.parentInput{
+    position: relative;
 }
 
-.main-bar-left {
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-    border: 3px solid green;
-    padding: 10px;
-  }
+.input {
+    position: absolute;
+    left: 30px;
+}
